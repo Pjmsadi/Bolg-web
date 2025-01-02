@@ -4,16 +4,18 @@ import { urlFor } from "@/lib/sanity";
 import Image from 'next/image';
 import { useState } from 'react';
 
-interface iAppProps {
-    images: any;
+interface Image {
+    _id: string;
+    url: string;
+    caption: string;
 }
 
-export default function ImageGallery({images}:iAppProps) {
-const [bigImage, setImage] = useState<any>(images[0]);
+export default function ImageGallery({images}: {images: Image[]}) {
+const [bigImage, setImage] = useState<Image>(images[0]);
 
-const handleSmallImageClick = (image:any) => {
+const handleSmallImageClick = (image: Image) => {
     setImage(image);
-};
+}
 
 
 return(

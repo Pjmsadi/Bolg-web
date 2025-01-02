@@ -17,8 +17,8 @@ const data = await getData()
         <div className="mb-8 flex flex-warp justify-between md:mb-16">
             <div className="mb-6 flex w-full flex-col justify-center sm:mb-12 lg:mb-0 lg:w-1/3 lgg:pb-24 lg:pt-48">
             <h1 className="mb-4 text-4xl font-bold text-black sm:text-5xl md:text-6xl">Top fashion for a top price!</h1>
-            <p className="max-w-wd leading-relaxed text-gray-500 xl:text-lg">"Discover the latest trends in men’s and women’s fashion at StyleSphere.
-            From chic clothing to trendy footwear, we bring you a curated collection to express your unique style. Shop quality, comfort, and elegance all in one place!"
+            <p className="max-w-wd leading-relaxed text-gray-500 xl:text-lg">&quot;Discover the latest trends in men&rsquo;s and women&rsquo;s fashion at StyleSphere.
+            From chic clothing to trendy footwear, we bring you a curated collection to express your unique style. Shop quality, comfort, and elegance all in one place!&quot;
             </p>
             </div>
             <div className="mb:12 flex w-full md:mb-16 lg:w-2/3">
