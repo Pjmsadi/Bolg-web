@@ -42,6 +42,7 @@ export default async function Newest() {
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 {data.map((product) => (
                     <div key={product._id} className="group relative">
+                      <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                       <Image
                         src={product.imageUrl}
                         alt="product name"
@@ -49,6 +50,7 @@ export default async function Newest() {
                         width={300}
                         height={300}
                       />
+                      </div>
                     <div className="mt-4 flex justify-between">
                       <div>
                         <h3 className="text-sm text-gray-700">
