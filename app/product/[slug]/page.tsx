@@ -17,8 +17,7 @@ async function getData(slug: string) {
     return data;
 }
 
-export default async function ProductPage( {params,}: {params: {slug: string};
-}) {
+export default async function ProductPage({ params }: { params: { slug: string } }) {
     const data = await getData(params.slug);
     return(
     <div className="bg-white">
@@ -40,7 +39,7 @@ export default async function ProductPage( {params,}: {params: {slug: string};
                 </div>
                 <div className="mb-6 flex items-center gap-3 md:mb-10">
                     <Button>
-                        <span className="text-sm">4.2</span>
+                        <span>4.2</span>
                         <Star className="h-5 w-5" />
                     </Button>
 
