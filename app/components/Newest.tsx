@@ -1,4 +1,4 @@
-import { Client } from "@/lib/sanity";
+import { client } from "@/lib/sanity";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
@@ -23,7 +23,7 @@ async function getdata() {
 }
 `
     
-    const data = await Client.fetch(query);
+    const data = await client.fetch(query);
     return data;
 
 }

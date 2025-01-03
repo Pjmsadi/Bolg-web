@@ -1,10 +1,10 @@
 
 import Image from "next/image";
-import { Client, urlFor } from "@/lib/sanity";
+import { client, urlFor } from "@/lib/sanity";
 async function getData() {
     const query = `*[_type == "heroimages"][0]`
 
-    const data = await Client.fetch(query)
+    const data = await client.fetch(query)
 
     return data
 }
