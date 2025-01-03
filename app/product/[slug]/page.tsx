@@ -15,8 +15,6 @@ async function getData(slug: string) {
     return data;
 }
 
-import { GetServerSideProps } from 'next';
-
 interface Params {
   slug: string;
 }
@@ -25,13 +23,7 @@ interface Props {
   params: Params;
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { slug } = context.params as unknown as Params || { slug: '' };
-  const data = await getData(slug);
-  return { props: { params: { slug }, data } };
-};
-
-export default async function ProductPage({ params, data }: Props & { data: any }) {
+export default async function ProductPage({ params }: Props) {
     const productData = await getData(params.slug);
     return(
     <div className="bg-white">
