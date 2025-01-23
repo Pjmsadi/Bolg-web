@@ -1,7 +1,8 @@
+import AddToCart from "@/app/components/AddToCart";
 import ImageGallery from "@/app/components/ImageGallery";
 import { Button } from "@/components/ui/button";
 import { client } from "@/lib/sanity"
-import { Star } from "lucide-react";
+import { Star, Truck } from "lucide-react";
 
 async function getData(slug: string) {
     const query = `*[_type == "product" && slug.current =="${slug}"][0]{
@@ -38,20 +39,48 @@ export default async function ProductPage({ params }: { params: { slug: string }
 
                 </div>
                 <div className="mb-6 flex items-center gap-3 md:mb-10">
-                    <Button>
-                        <span>4.2</span>
+                    <Button className="rounded-full gap-x-2">
+                        <span className="text-sm">4.2</span>
                         <Star className="h-5 w-5" />
                     </Button>
+                    <span className="text-sm text-gray-500 transition duration-100">
+                        56 Ratings
+                    </span>
+    
+                </div>
+                <div className="mb-4">
+                    <div className="flex items-center gap-2">
+                        <span className="text-xl font-bold text-gray-800 md:text-2xl "  >
+                            ${data.price}
+                        </span>
+                        <span className="mb-0.5 text-red-500 line-through ">
+                            ${data.price + 30}
+                        </span>
+
+                    </div>
+
+                <span className="text-sm text-gray-500">
+                    incl. Vat plus shipping
+                </span>
 
                 </div>
+                <div className="mb-6 flex items-center gap-2 text-gray-500">
+                <Truck className="w-6 h-6" /> 
+                <span className="text-sm">2-4 Days</span>
 
             </div>
-
+            <div className="flex gap-2.5">
+                {data.images && data.images.length > 0 && (
+                    <AddToCart currency="USD" description={data.description} image={data.images[0]} name={data.name} price={data.price} key={data._id} id={data._id}/>
+                )}
+                <Button variant={"secondary"}>Checkout Now</Button>
+                </div>
+                <p className="mt-12 text-base text-gray-500 tracking-wide">{data.description}</p>
             </div>
 
         </div>
 
     </div>
-     
+</div>
     )
 }
