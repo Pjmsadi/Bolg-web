@@ -8,7 +8,7 @@ export interface ProductCart{
     description: string;
     price: number;
     currency: string;
-    image: any;
+    image: string;
     id : string;
 }
 
@@ -24,7 +24,7 @@ export default function AddToCart({currency,description,image,name,price }: Prod
     }
     return(
         <Button onClick={ () =>{ 
-            addItem(product),handleCartClick();}}>
+            addItem(product); handleCartClick();}}>
             Add to Cart
         </Button>
     )

@@ -4,11 +4,9 @@ import {
     SheetContent,
     SheetHeader,
     SheetTitle,
-    
   } from "@/components/ui/sheet"
 import { useShoppingCart } from "use-shopping-cart";
 import Image from 'next/image';
-import { Description } from "@radix-ui/react-dialog";
 import { Button } from "@/components/ui/button";
 
 export default function ShoppingCart() {

@@ -1,8 +1,7 @@
 import { client } from "@/lib/sanity";
-import { smiplifyProduct } from "../interface";
 import Image from 'next/image';
-import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { smiplifyProduct } from "../interface";
 
 async function getData(category: string) {
     const query =`*[_type == "product" && category->name == "${category}"]{
@@ -34,7 +33,7 @@ export default async function CategoryPage({ params, }: { params: { category: st
                       <div className="aspect-square w-full overflow-hidden rounded-md bg-gray-200 group-hover:opacity-75 lg:h-80">
                       <Image
                         src={product.imageUrl}
-                        alt="product name"
+                        alt={product.name}
                         className="w-full h-full object-center object-cover lg:w-full lg:h-full"
                         width={300}
                         height={300}

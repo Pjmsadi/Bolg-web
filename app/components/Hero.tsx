@@ -1,6 +1,7 @@
 
 import Image from "next/image";
 import { client, urlFor } from "@/lib/sanity";
+import Link from "next/link";
 async function getData() {
     const query = `*[_type == "heroimages"][0]`
 
@@ -42,16 +43,15 @@ const data = await getData()
         </div>
         </div>
         <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
-        <div className="flex h-12 w-64 divide-x overflow-hidden rounded-lg border">
-            <a href="/Men" className="flex items-center justify-center w-1/2 font-semibold text-gray-600 transition duration-100 hover:text-primary active:bg-gray-200">Men
-            </a>
-            <a href="/Women" className="flex items-center justify-center w-1/2 font-semibold text-gray-600 transition duration-100 hover:text-primary active:bg-gray-200">Women
-            </a>
-            <a href="/Teens" className="flex items-center justify-center w-1/2 font-semibold text-gray-600 transition duration-100 hover:text-primary active:bg-gray-200">Teens
-            </a>
+            <Link href="/Men" className="flex items-center justify-center w-1/2 font-semibold text-gray-600 transition duration-100 hover:text-primary active:bg-gray-200">Men
+            </Link>
+            <Link href="/Women" className="flex items-center justify-center w-1/2 font-semibold text-gray-600 transition duration-100 hover:text-primary active:bg-gray-200">Women
+            </Link>
+            <Link href="/Teens" className="flex items-center justify-center w-1/2 font-semibold text-gray-600 transition duration-100 hover:text-primary active:bg-gray-200">Teens
+            </Link>
+    
 
         </div>
-        </div>
-       </section>
+        </section>
     );
 }
