@@ -24,13 +24,13 @@ return(
         {images.map((image: Image, idx: number) => (
             <div key={idx} className="overflow-hidden rounded-lg bg-gray-100">
             <Image src={urlFor(image).url()} width={200} height={200} alt="photo"
-             className="h-full w-full object-cover object-center cursor-pointer" 
+             className=" object-cover object-center cursor-pointer" 
             onClick={() => handleSmallImageClick(image)} />
             </div>
         ))}
         </div>
         <div className="relative overflow-hidden rounded-lg bg-gray-100 lg:col-span-4">
-        <Image src={urlFor(bigImage).url()} width={800} height={800} alt="photo" className="h-full w-full object-cover object-center cursor-pointer" />
+        <Image src={urlFor(bigImage).url()} width={800} height={800} alt="photo" className=" object-cover object-center cursor-pointer" />
         <span className="absolute left-0 top-0 rounded-br-lg bg-red-500 px-3 py-1.5 text-sm uppercase tracking-wider text-white ">{bigImage.caption}
         SALE
         </span>
