@@ -1,7 +1,14 @@
 import { client } from "@/lib/sanity";
 import Image from 'next/image';
 import Link from "next/link";
-import { smiplifyProduct } from "../interface";
+interface SimplifyProduct {
+  _id: string;
+  imageUrl: string;
+  price: number;
+  name: string;
+  slug: string;
+  categoryName: string;
+}
 
 async function getData(category: string) {
     const query =`*[_type == "product" && category->name == "${category}"]{
@@ -17,14 +24,15 @@ async function getData(category: string) {
     return data;
 }
 
-export default async function CategoryPage({ params, }: { params: { category: string }; }) {
-    const data: smiplifyProduct[] = await getData(params.category);
+export default async function CategoryPage({ params }: { params?: { category?: string } }) {
+    const category = params?.category || "defaultCategory";
+    const data: SimplifyProduct[] = await getData(category);
 
     return (
          <div className="bg-white">
             <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                 <div className="flex items-center justify-between ">
-               <h2 className="text-2xl font-bold tracking-tight text-gray-900"> Our Products for {params.category} </h2>
+               <h2 className="text-2xl font-bold tracking-tight text-gray-900"> Our Products for {params?.category || "defaultCategory"} </h2>
 
                 </div>
                 <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">

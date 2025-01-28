@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import CartProvider from "./components/providers";
 import ShoppingCart from "./components/ShoppingCart";
+import React from "react";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +35,7 @@ export default function RootLayout({
         <CartProvider>  
         <Navbar />
         <ShoppingCart />
+        
         {children}
         </CartProvider>
       </body>
