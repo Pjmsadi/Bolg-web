@@ -25,7 +25,7 @@ async function getData() {
 }
 
 export default async function AllProducts({
-  params,
+
 }: {
   params?: string;
 }) {
