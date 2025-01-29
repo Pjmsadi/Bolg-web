@@ -35,9 +35,11 @@ export default function RootLayout({
         <CartProvider>  
         <Navbar />
         <ShoppingCart />
+      
         
         {children}
         </CartProvider>
+       
       </body>
     </html>
   );

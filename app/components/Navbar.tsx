@@ -6,49 +6,54 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useShoppingCart } from "use-shopping-cart";
 
-const Links =[
-
-    {name: 'Home', href: '/'},
-    {name: 'Men', href: '/Men'},
-    {name: 'Women', href: '/Women'},
-    {name: 'Teens', href: '/Teens'},
-    
+const Links = [
+    { name: 'Home', href: '/' },
+    { name: 'Men', href: '/Men' },
+    { name: 'Women', href: '/Women' },
+    { name: 'Teens', href: '/Teens' },
 ];
+
 export default function Navbar() {
     const pathname = usePathname();
-    const {handleCartClick} = useShoppingCart();
-    
-    return (
-        <header className="mb-8 border-b">
-            <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl">
-                <Link href="/"><h1 className ="text-2xl md:text-4xl font-bold">Sadi<span className="text-primary">Chic</span> </h1>
-            </Link>
-            <nav className="hidden gap-12 lg:flex 2xl:ml-16">
-                {Links.map((link, idx) => (
+    const { handleCartClick } = useShoppingCart();
 
-                    <div key={idx}>
-                    {pathname === link.href ?  (
-                        <Link className="text-lg font-semibold text-primary" href={link.href}>{link.name}</Link>
-                    ):(
-                        <Link  href={link.href} className="text-lg font-semibold text-gray-600 transition duration-100 hover:text-primary">
+    return (
+        <header className="sticky top-0 z-50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 border-b">
+            <div className="flex items-center justify-between mx-auto max-w-2xl px-4 sm:px-6 lg:max-w-7xl h-16">
+                <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
+                    <h1 className="text-2xl md:text-3xl font-bold tracking-tighter">
+                        Sadi<span className="text-primary">Chic</span>
+                    </h1>
+                </Link>
+
+                <nav className="hidden lg:flex items-center gap-8">
+                    {Links.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={`text-sm font-medium transition-colors relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-primary hover:after:w-full after:transition-all ${
+                                pathname === link.href 
+                                    ? 'text-primary after:w-full' 
+                                    : 'text-foreground/60 hover:text-foreground'
+                            }`}
+                        >
                             {link.name}
                         </Link>
-                        
-                    )}       
-                        </div>
+                    ))}
+                </nav>
 
-                ))}
-            </nav>
-            <div className="flex divide-x border-r-sm border-l">
-                <Button 
-                variant={"outline"} 
-                onClick={() => handleCartClick()}
-                className="flex flex-cols gap-y-1.5 h-12 w-12 sm:h-20 sm:w-20 md:h-24 md:w-24 rounded-none">
-                    <ShoppingBag/>
-                <span className="hidden text-xs font-semibold text-gray-500 sm:block">Cart</span>
-                </Button>
-            </div>
-
+                <div className="flex items-center">
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={handleCartClick}
+                        className="relative rounded-full h-10 w-10 hover:bg-accent/90 transition-colors"
+                        aria-label="Open shopping cart"
+                    >
+                        <ShoppingBag className="h-5 w-5" />
+                    
+                    </Button>
+                </div>
             </div>
         </header>
     );
